@@ -28,6 +28,7 @@ Place the repository where Codex can access it, then ask Codex to use the skill 
 Example prompts:
 
 - "Use Quarterly Red Flag Scanner to do a quick scan of this quarterly report."
+- "Retrieve the latest 10-Q, latest 10-K, and current earnings release for this ticker, then run all 11 scanners."
 - "Create a full earnings-quality memo for this quarter and compare it with the prior-year quarter."
 - "Focus only on revenue quality and receivables. I want the evidence table and management questions."
 - "Turn this analysis into a public case study. Keep it non-accusatory and avoid investment recommendations."
@@ -37,6 +38,25 @@ Example prompts:
 - "Run the adjusted metric, income-statement presentation, and cash-flow scanners on this earnings release."
 
 For detailed scanner descriptions, document-upload guidance, and invocation examples, see [docs/using-the-skill.md](docs/using-the-skill.md).
+
+For Codex-native filing retrieval, connector fallback behavior, and SEC EDGAR workflow guidance, see [docs/codex-native-filing-retrieval.md](docs/codex-native-filing-retrieval.md).
+
+## Codex-Native Filing Retrieval
+
+The skill can work from uploaded documents, but a Codex-native workflow can start with a company name or ticker. When retrieval tools are available, Codex should gather primary-source filings first, build a document manifest, then run the scanners.
+
+Preferred retrieval order:
+
+- Use a dedicated SEC, EDGAR, filings, public-equity, or market-disclosure connector if available.
+- For U.S. registrants, use official SEC EDGAR public data when no dedicated connector is available.
+- Use company investor-relations pages for earnings releases, presentations, and transcripts.
+- Fall back to user-uploaded documents when retrieval is unavailable.
+
+Example:
+
+```text
+Use Quarterly Red Flag Scanner for AAPL. Retrieve the latest 10-Q, prior-year quarter 10-Q, latest 10-K, and current earnings release from primary sources, then run all 11 scanners and create a red-flag memo.
+```
 
 ## Recommended Inputs
 

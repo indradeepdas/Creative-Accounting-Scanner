@@ -14,6 +14,7 @@
 - States limitations.
 - Is useful to a senior finance professional.
 - Contains no build-input references.
+- When retrieval is requested, identifies the source documents, filing dates, URLs, and any missing expected documents before scanning.
 
 ## A Bad Output
 
@@ -29,3 +30,4 @@
 - Sounds sensational.
 - Gives buy, sell, or hold guidance.
 - Mentions or reveals non-public build inputs.
+- Claims to have reviewed SEC filings, earnings releases, or presentations without listing the retrieved documents or explaining missing retrieval evidence.

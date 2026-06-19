@@ -4,6 +4,10 @@
 
 Identify the company, period, document set, and requested output. If the user provides only one document, state that comparisons will be limited. If the user asks for a public post, apply public-output safeguards from the beginning.
 
+If the user gives a ticker, company name, CIK, or asks Codex to retrieve filings, use `document_acquisition.md` before extraction. Prefer a dedicated filings connector when available, then official SEC EDGAR public data for U.S. registrants, then company investor-relations pages, then user-uploaded files.
+
+Create a document manifest before scanning so the output can distinguish retrieved documents from user-supplied documents.
+
 ## 2. Build A Period Table
 
 Create a normalized table for current quarter, prior quarter, prior-year quarter, current year-to-date, prior-year year-to-date, and trailing 12 months where possible.

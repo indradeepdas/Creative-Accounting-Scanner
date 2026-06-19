@@ -2,6 +2,8 @@
 
 This guide explains what to upload, what each scanner module does, and how to ask Codex to run one scanner, a selected group, or the full scanner set.
 
+The skill also supports a Codex-native retrieval flow. If the user gives a ticker or company name instead of uploaded documents, Codex should try to retrieve primary-source filings and disclosures before running scanners. See [codex-native-filing-retrieval.md](codex-native-filing-retrieval.md).
+
 ## What To Upload
 
 The scanner can run on a single document, but it becomes much more useful when the user supplies documents that let Codex compare the income statement, balance sheet, cash-flow statement, notes, and management commentary across periods.
@@ -74,6 +76,14 @@ Upload these when available:
 ## How To Invoke The Skill
 
 Use natural language. Codex should infer the scanner set from the documents and requested output, but explicit scanner names work best when the user wants a targeted review.
+
+If you want Codex to retrieve documents first, say so directly:
+
+```text
+Retrieve the latest 10-Q, latest 10-K, current earnings release, and investor presentation for this ticker, then run all 11 scanners.
+```
+
+If retrieval is not available in the current Codex session, upload the documents listed above.
 
 ## Run All Scanners
 

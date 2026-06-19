@@ -2,6 +2,12 @@
 
 The skill can run with a minimal document set, but confidence improves when documents allow period comparison and cross-statement triangulation.
 
+Codex-native option:
+
+- Instead of uploading documents, provide a company name, ticker, or CIK and ask Codex to retrieve public filings from primary sources before running the scanners.
+- Example: "Retrieve the latest 10-Q, latest 10-K, current earnings release, and prior-year quarter filing for MSFT, then run all 11 scanners."
+- If retrieval tools or web access are unavailable, upload the document package below.
+
 For a strong review, provide:
 
 - Company name and ticker.

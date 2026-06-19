@@ -24,12 +24,29 @@ Ask for or identify:
 
 - Company name.
 - Ticker if available.
+- CIK or issuer identifier if available.
 - Reporting period.
 - Documents reviewed.
 - Whether prior-period documents are available.
+- Whether Codex should retrieve public filings or use only user-supplied documents.
 - User objective: quick scan, full memo, management questions, public case study, or ratio table.
 
-### 2. Extraction
+### 2. Document Acquisition
+
+If the user supplies documents, use those documents.
+
+If the user gives only a company name, ticker, CIK, issuer identifier, or asks Codex to retrieve filings, use `skill/document_acquisition.md`.
+
+Acquisition order:
+
+- Use a dedicated SEC, EDGAR, filings, public-equity, or market-disclosure connector if available.
+- For U.S. registrants, use official SEC EDGAR public data when no dedicated connector is available.
+- Use company investor-relations pages for earnings releases, presentations, and transcripts.
+- Fall back to user-uploaded files or links when retrieval is unavailable.
+
+Before scanning, create a document manifest with source, filing type, period, filed date, URL, accession number when applicable, and the scanner areas each document supports.
+
+### 3. Extraction
 
 Extract where available:
 
@@ -46,7 +63,7 @@ Extract where available:
 - Adjusted metric reconciliations.
 - Management commentary.
 
-### 3. Normalization
+### 4. Normalization
 
 Normalize:
 
@@ -59,7 +76,7 @@ Normalize:
 
 Keep a note of seasonality, acquisitions, divestitures, currency movements, changes in accounting standards, and discontinued operations.
 
-### 4. Scanner Selection
+### 5. Scanner Selection
 
 Run all relevant scanners when data is available. Run a limited scan when only an earnings release or investor presentation is available. Always state limitations.
 
@@ -97,11 +114,12 @@ Common scanner groups:
 Suggested user-facing prompts:
 
 - "Run all 11 scanners and produce a full earnings-quality memo."
+- "Retrieve the latest 10-Q and earnings release for this ticker, then run all scanners."
 - "Run only the Revenue Quality Scanner and Customer Balance Quality Scanner."
 - "Run the adjusted metric, presentation, and cash-flow scanners on this earnings release."
 - "Run a limited scan because I only have the investor presentation."
 
-### 5. Evidence Table
+### 6. Evidence Table
 
 For each finding capture:
 
@@ -116,7 +134,7 @@ For each finding capture:
 - Confidence.
 - Missing evidence.
 
-### 6. Scoring
+### 7. Scoring
 
 Score each finding by:
 
@@ -126,11 +144,11 @@ Score each finding by:
 - Recurrence: One-off, Repeated, or Worsening.
 - Confidence: 0% to 100%.
 
-### 7. Memo Generation
+### 8. Memo Generation
 
 Use `templates/red_flag_memo.md` for a full memo. Use `templates/earnings_quality_scorecard.md` for a compact review. Use `templates/management_questions.md` when the user wants questions only.
 
-### 8. Legal-Safety Pass
+### 9. Legal-Safety Pass
 
 Before finalizing:
 
@@ -141,7 +159,7 @@ Before finalizing:
 - Remove investment recommendations.
 - Replace statements about intent with statements about observable reporting patterns.
 
-### 9. Public-Output Pass
+### 10. Public-Output Pass
 
 If the user asks for a public case study or LinkedIn post:
 
