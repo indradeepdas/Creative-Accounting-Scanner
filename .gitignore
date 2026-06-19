@@ -1,0 +1,13 @@
+.private_source_leak_terms
+private_source/
+source_materials/
+private_notes/
+_private_notes/
+.env
+.venv
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.DS_Store
+Thumbs.db
